@@ -1,4 +1,4 @@
-  import 'package:calculator_numsys/pages/config.dart';
+import 'package:calculator_numsys/pages/config.dart';
 import 'package:flutter/material.dart';
 
 class SpecButton extends StatelessWidget {
@@ -23,32 +23,35 @@ class SpecButton extends StatelessWidget {
     required this.heightBtn,
     required this.activeButton,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(2.0),
-      
-      child: SizedBox(
-        width: widthBtn,
-        height: heightBtn,
-        child: TextButton(
-          onPressed: activeButton ? () {callback(text);} : null,
-          
-          style: TextButton.styleFrom(
-            primary: Colors.white,
-            backgroundColor: Color(fillColor),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(400.0),
+        margin: const EdgeInsets.all(2.0),
+        child: SizedBox(
+          width: widthBtn,
+          height: heightBtn,
+          child: TextButton(
+            onPressed: activeButton
+                ? () {
+                    callback(text);
+                  }
+                : null,
+            style: TextButton.styleFrom(
+              // primary: Colors.white,
+              backgroundColor: Color(fillColor),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(400.0),
+              ),
             ),
+            child: Text(text,
+                style: TextStyle(
+                    fontSize: textSize,
+                    color: activeButton
+                        ? Color(textColor)
+                        : const Color(deactivatedButtonText),
+                    fontFamily: 'Inter')),
           ),
-          
-          child: Text(
-            text,
-            style: TextStyle(fontSize: textSize, color: activeButton ? Color(textColor) : const Color(deactivatedButtonText), fontFamily: 'Inter')
-          ),
-        ),
-      )
-    );
+        ));
   }
 }

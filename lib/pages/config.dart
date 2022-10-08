@@ -13,14 +13,13 @@ const otherbutColor = 0xFF086CA2;
 
 const noneColor = 0x00000000;
 
-
 // Button size
 const numbBtnSize = 35.0;
 const funcBtnSize = 35.0;
 
 // width and height buttons
-const widthNumbBtn = 60.0;
-const heightNumbBtn = 60.0;
+const widthNumbBtn = 56.0;
+const heightNumbBtn = 56.0;
 
 const widthFuncBtn = 75.0;
 const heightFuncbBtn = 60.0;

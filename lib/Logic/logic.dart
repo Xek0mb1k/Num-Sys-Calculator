@@ -16,8 +16,8 @@ bool activeButtonD = false;
 bool activeButtonE = false;
 bool activeButtonF = false;
 
-void rechangeded(value){
-  if(value == '2'){
+void rechangeded(value) {
+  if (value == '2') {
     activeButton2 = false;
     activeButton3 = false;
     activeButton4 = false;
@@ -32,7 +32,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '3'){
+  } else if (value == '3') {
     activeButton2 = true;
     activeButton3 = false;
     activeButton4 = false;
@@ -47,7 +47,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '4'){
+  } else if (value == '4') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = false;
@@ -62,7 +62,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '5'){
+  } else if (value == '5') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -77,7 +77,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '6'){
+  } else if (value == '6') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -92,7 +92,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '7'){
+  } else if (value == '7') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -107,7 +107,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '8'){
+  } else if (value == '8') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -122,7 +122,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '9'){
+  } else if (value == '9') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -137,7 +137,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '10'){
+  } else if (value == '10') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -152,7 +152,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '11'){
+  } else if (value == '11') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -167,7 +167,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '12'){
+  } else if (value == '12') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -182,7 +182,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '13'){
+  } else if (value == '13') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -197,7 +197,7 @@ void rechangeded(value){
     activeButtonD = false;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '14'){
+  } else if (value == '14') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -212,7 +212,7 @@ void rechangeded(value){
     activeButtonD = true;
     activeButtonE = false;
     activeButtonF = false;
-  }else if(value == '15'){
+  } else if (value == '15') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -227,7 +227,7 @@ void rechangeded(value){
     activeButtonD = true;
     activeButtonE = true;
     activeButtonF = false;
-  }else if(value == '16'){
+  } else if (value == '16') {
     activeButton2 = true;
     activeButton3 = true;
     activeButton4 = true;
@@ -247,14 +247,16 @@ void rechangeded(value){
 
 String endans = '';
 num trans = 0;
-void translatenumsys(String sourseVal, int numSysFrom, int numSysTo){
+void translatenumsys(String sourseVal, int numSysFrom, int numSysTo) {
   endans = '';
   trans = 0;
 
   // translate sourseVal in 10 sys
-  if(numSysFrom != 10){
-    for(int i = 0;i < sourseVal.length;i++){
-      trans += (double.parse(transfromWords(sourseVal[sourseVal.length-i - 1]))) * pow(numSysFrom, i);
+  if (numSysFrom != 10) {
+    for (int i = 0; i < sourseVal.length; i++) {
+      trans +=
+          (double.parse(transfromWords(sourseVal[sourseVal.length - i - 1]))) *
+              pow(numSysFrom, i);
     }
     sourseVal = trans.toString();
   }
@@ -263,6 +265,84 @@ void translatenumsys(String sourseVal, int numSysFrom, int numSysTo){
   endans = double.parse(sourseVal).toInt().toRadixString(numSysTo);
 }
 
-String transfromWords(String st){
-  return 10 <= st.codeUnitAt(0)-55 ? (st.codeUnitAt(0)-55).toString() : st;
+String transfromWords(String st) {
+  return 10 <= st.codeUnitAt(0) - 55 ? (st.codeUnitAt(0) - 55).toString() : st;
+}
+
+String addDivider(String qwestion) {
+  String ans = "";
+  int count = 0;
+  if (qwestion.contains('.')) {
+    for (int i = qwestion.indexOf('.') - 1; i >= 0; i--) {
+      if (count == 3) {
+        count = 0;
+        ans += ',';
+      }
+
+      ans += qwestion[i];
+      if (qwestion[i] != '+' &&
+          qwestion[i] != '−' &&
+          qwestion[i] != '×' &&
+          qwestion[i] != '÷') {
+        count += 1;
+      } else {
+        count = 0;
+      }
+      
+    }
+
+    //removed bug ','
+    ans = ans.split('').reversed.join('');
+
+    for (int i = 0; i < ans.length - 1; i++) {
+      if ((ans[i] == '+' || ans[i] == '−' || ans[i] == '×' || ans[i] == '÷') &&
+          ans[i + 1] == ',') {
+
+        ans = ans.replaceRange(i+1, i + 2, '');
+        
+      }
+    }
+
+
+    return ans +
+        qwestion.substring(qwestion.indexOf('.'));
+  } else {
+    for (int i = qwestion.length - 1; i >= 0; i--) {
+      if (count == 3) {
+        count = 0;
+        ans += ',';
+      }
+
+      ans += qwestion[i];
+      if (qwestion[i] != '+' &&
+          qwestion[i] != '−' &&
+          qwestion[i] != '×' &&
+          qwestion[i] != '÷') {
+        count += 1;
+      } else {
+        count = 0;
+      }
+    }
+
+    //removed bug ','
+    ans = ans.split('').reversed.join('');
+
+    for (int i = 0; i < ans.length - 1; i++) {
+      if ((ans[i] == '+' || ans[i] == '−' || ans[i] == '×' || ans[i] == '÷') &&
+          ans[i + 1] == ',') {
+
+        ans = ans.replaceRange(i+1, i + 2, '');
+        
+      }
+    }
+
+    return ans;
+  }
+}
+
+String removeDivider(String question) {
+  String ans = "";
+
+  ans = question.replaceAll(',', '');
+  return ans;
 }
