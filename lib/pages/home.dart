@@ -2,6 +2,7 @@ import 'package:calculator_numsys/Widgets/buttons.dart';
 import 'package:calculator_numsys/pages/config.dart';
 import 'package:flutter/material.dart';
 import 'package:rotating_icon_button/rotating_icon_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 // import '../Widgets/buttons.dart';
 import '../Logic/logic.dart';
 
@@ -326,13 +327,38 @@ class HomeState extends State<Home> {
         backgroundColor: const Color(0xFF3276A6),
         appBar: AppBar(
           actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_vert),
-              color: const Color(txtColor),
-              splashRadius: 20,
-              iconSize: 25,
-            )
+            PopupMenuButton(
+                color: const Color(backLiColor),
+                itemBuilder: (context) {
+                  return [
+                    const PopupMenuItem<int>(
+                      value: 0,
+                      child: Text(
+                        "About app",
+                        style:
+                            TextStyle(color: Color(txtDarkColor), fontSize: 18),
+                      ),
+                    ),
+                  ];
+                },
+                onSelected: (value) {
+                  if (value == 0) {
+                    showDialog<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const AlertDialog(
+                            backgroundColor: Color(backLiColor),
+                            title: Text('About app',
+                                style: TextStyle(color: Color(txtDarkColor))),
+                            content: Text(
+                              'This app developed by Xek0mb1k\n',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: Color(txtDarkColor)),
+                            ),
+                          );
+                        });
+                  }
+                }),
           ],
           backgroundColor: const Color(backColor),
           shadowColor: const Color(noneColor),
